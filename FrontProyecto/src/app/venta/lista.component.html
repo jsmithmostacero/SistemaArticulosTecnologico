@@ -1,0 +1,29 @@
+<!-- {{ventas| json}} -->
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">N° Venta</th>
+                <th scope="col">Sub.Total</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let venta of ventas">
+                <th scope="row">{{venta.id}}</th>
+                <td>{{ venta.total| currency:' PEN ':'symbol':'1.2-2'}}</td>
+                <td>{{venta.ventaFecha| date:'yyyy-MM-dd'}}</td>
+                <td>
+                  <button class="btn btn-outline-primary"  (click)="verDetalleVenta(venta.id ?? 0)">Ver <i class="fa-solid fa-eye"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+</div>

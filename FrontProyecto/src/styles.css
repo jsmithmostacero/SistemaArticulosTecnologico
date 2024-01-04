@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+.custom-input-container {
+    flex: 1; /* El contenedor del input tomará todo el espacio restante */
+    margin: 0 30px; /* Ajusta el margen según sea necesario */
+ }
+ 
+ .custom-input {
+    width: 100%; /* El input toma el 100% del ancho del contenedor */
+ }
+ 

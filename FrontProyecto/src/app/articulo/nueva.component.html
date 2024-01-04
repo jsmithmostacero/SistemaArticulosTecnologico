@@ -1,0 +1,66 @@
+
+<br>
+<br>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+  template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />"
+  
+>
+  <p style="font-size: 20px; color: white">Subiendo imagen...</p>
+</ngx-spinner>
+<div class="container">
+    <form [formGroup]="formularioArticulo" (ngSubmit)="onUpload()" class="mx-auto" novalidate enctype="multipart/form-data"
+    >
+        <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 5vh;" >
+            <h2 text-center>Registrar Articulo Técnologico</h2>
+            <br>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Descripción</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" 
+            aria-describedby="inputGroup-sizing-sm" formControlName="descripcion">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" 
+            aria-describedby="inputGroup-sizing-sm" formControlName="modelo">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Marca</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" 
+            aria-describedby="inputGroup-sizing-sm" formControlName="marca">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Stock</span>
+            <input type="number" class="form-control" aria-label="Sizing example input" 
+            aria-describedby="inputGroup-sizing-sm" formControlName="stock">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+            <input type="number" class="form-control" aria-label="Sizing example input" 
+            aria-describedby="inputGroup-sizing-sm" formControlName="precio">
+        </div>
+
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Elegir imagen</label>
+            <input class="form-control" type="file" id="imagen" 
+            #imagenInputFile (change)="onFileChange($event)" accept ="image/png, image/jpeg, image/gif">
+        </div>
+
+        <div class="form-group mt-5" *ngIf="imagen" >
+            <h5>Vista previa:</h5>
+                <img class="image-thumbnail" style="max-width: 100px;" [src]="imagenMin"  alt="Vista previa">
+        </div>
+
+        
+        <div class="form-group d-flex justify-content-center">
+            <button type="button" class="btn btn-outline-success" (click)="onUpload()">Subir <i class="fa-solid fa-upload"></i></button>
+            <button type="button" class="btn btn-outline-danger"[disabled]="!imagen" (click)="reset()">Reset <i class="fa-solid fa-rotate"></i></button>
+        </div>
+    </form>
+</div> 
